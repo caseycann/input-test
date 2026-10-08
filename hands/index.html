@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hand Gestures</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1><a href="../" class="home-link">Input Lab</a> <span class="crumb">/</span> Hands</h1>
+    <div class="controls">
+      <label>
+        Min confidence
+        <input id="minScore" type="range" min="30" max="95" value="60" />
+        <span id="minScoreVal" class="val"></span>
+      </label>
+      <button id="toggle" disabled>Start camera</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="stage">
+      <video id="video" playsinline muted></video>
+      <canvas id="overlay"></canvas>
+      <div id="status" class="status">Loading model…</div>
+    </section>
+
+    <!-- Left hand panel sits on the left because the video is mirrored. -->
+    <section class="hands">
+      <div class="hand" data-hand="Left">
+        <div class="hand-header"><h2>Left hand</h2><span class="hand-state">Not detected</span></div>
+        <div class="inputs"></div>
+      </div>
+      <div class="hand" data-hand="Right">
+        <div class="hand-header"><h2>Right hand</h2><span class="hand-state">Not detected</span></div>
+        <div class="inputs"></div>
+      </div>
+    </section>
+
+    <section class="data">
+      <div class="data-header">
+        <h2>Raw data</h2>
+        <div class="stats">
+          <span id="fps">– fps</span>
+          <span id="inference">– ms</span>
+        </div>
+        <button id="copy">Copy JSON</button>
+      </div>
+      <pre id="json" class="json">Waiting for camera…</pre>
+    </section>
+  </main>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

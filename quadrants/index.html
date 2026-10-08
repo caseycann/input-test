@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dark Quadrants</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1><a href="../" class="home-link">Input Lab</a> <span class="crumb">/</span> Quadrants</h1>
+    <div class="controls">
+      <label>
+        Zones
+        <select id="zones">
+          <option value="2x2" selected>4 (2×2)</option>
+          <option value="4x2">8 (4×2)</option>
+          <option value="4x4">16 (4×4)</option>
+        </select>
+      </label>
+      <label>
+        Darker than
+        <input id="threshold" type="range" min="5" max="95" value="60" />
+        <span id="thresholdVal" class="val"></span>
+        <span id="swatch" class="swatch"></span>
+      </label>
+      <label>
+        Trigger at
+        <input id="coverage" type="range" min="1" max="50" value="5" />
+        <span id="coverageVal" class="val"></span>
+      </label>
+      <label><input id="showMask" type="checkbox" checked /> Show dark pixels</label>
+      <button id="toggle">Start camera</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="stage">
+      <video id="video" playsinline muted></video>
+      <canvas id="overlay"></canvas>
+      <div id="status" class="status">Press “Start camera” to begin</div>
+    </section>
+
+    <section class="buttons" id="buttons"></section>
+  </main>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pose Input Test</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1><a href="../" class="home-link">Input Lab</a> <span class="crumb">/</span> Pose</h1>
+    <div class="controls">
+      <label>
+        Model
+        <select id="model">
+          <option value="lite">Lite (fastest)</option>
+          <option value="full" selected>Full (balanced)</option>
+          <option value="heavy">Heavy (most accurate)</option>
+        </select>
+      </label>
+      <label>
+        People
+        <select id="numPoses">
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </label>
+      <button id="toggle" disabled>Start camera</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="stage">
+      <video id="video" playsinline muted></video>
+      <canvas id="overlay"></canvas>
+      <div id="status" class="status">Loading model…</div>
+    </section>
+
+    <section class="data">
+      <div class="data-header">
+        <h2>Raw data</h2>
+        <div class="stats">
+          <span id="fps">– fps</span>
+          <span id="inference">– ms</span>
+          <span id="poseCount">0 poses</span>
+        </div>
+        <div class="data-actions">
+          <label><input type="radio" name="view" value="table" checked /> Table</label>
+          <label><input type="radio" name="view" value="json" /> JSON</label>
+          <button id="copy">Copy JSON</button>
+        </div>
+      </div>
+      <div id="table" class="table-wrap"></div>
+      <pre id="json" class="json" hidden></pre>
+    </section>
+  </main>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
